@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App3.Page1">
+  <!--<ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Entry">
+        <Style.Triggers>
+          <DataTrigger TargetType="Entry" Binding="{Binding isAuthenticated, Mode=TwoWay}" Value="true">
+            <Setter Property="Placeholder" Value="{Binding username}" />
+          </DataTrigger>
+        </Style.Triggers>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>-->
+  <StackLayout>
+    <StackLayout>
+      <Button Text="Authenticate" Command="{Binding AuthenticateCommand}"> </Button>
+      <Button Text="DeAuthenticate" Command="{Binding DeAuthenticateCommand}"> </Button>
+      <!--<Button Text="{Binding buttonText, Mode=TwoWay}" > </Button>-->
+      <Button>
+        <Button.Style>
+          <Style TargetType="Button">
+            <Setter Property="Text" Value="Register"></Setter>
+            <Style.Triggers>
+              <DataTrigger TargetType="Button" Binding="{Binding isAuthenticated, Mode=TwoWay}" Value="true">
+                <Setter Property="Text" Value="Edit"></Setter>
+              </DataTrigger  >
+            </Style.Triggers>
+          </Style>
+        </Button.Style>
+      </Button>
+      <!--<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />-->
+      <Entry x:Name="userNameEntry" Text="{Binding UserName, Mode=TwoWay}" >
+        <Entry.Style>
+          <Style TargetType="Entry">
+            <Setter Property="IsEnabled" Value="true" />
+            <Setter Property="Placeholder" Value="User Name" />
+            <Style.Triggers>
+              <DataTrigger TargetType="Entry" Binding="{Binding isAuthenticated, Mode=TwoWay}" Value="true">
+                <Setter Property="IsEnabled" Value="false" />
+                <Setter Property="Placeholder" Value="{Binding username}" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </Entry.Style>
+        <!--<Setter Property="IsEnabled" Value="true" />-->
+        <!--<Setter Property="IsReadOnly" Value="false" />
+
+        <Entry.Triggers>
+          <DataTrigger TargetType="Entry" Binding="{Binding isAuthenticated, Mode=TwoWay}" Value="true">
+            -->
+        <!--<Setter Property="IsEnabled" Value="false" />-->
+        <!--
+            <Setter Property="IsReadOnly" Value="true" />
+
+          </DataTrigger>
+        </Entry.Triggers>-->
+      </Entry>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>
